@@ -175,4 +175,6 @@ python scripts/package_skill.py
 
 打包工具按固定文件白名单收集资源，检查版本、引用闭合及技能文件编码，排除隐藏文件、密钥配置、IDE/Git 元数据和运行结果。发布操作、上架内容建议和验收步骤见 [SkillHub 发布说明](docs/PUBLISHING.md)。
 
+仓库保留标准 `LICENSE`；SkillHub 上传包自动将其导出为 `LICENSE.txt`，并同步调整包内文档链接，避免无扩展名文件被拒绝。许可证内容保持原样。
+
 测试验证范围与尚需现场验证的事项见 [验收说明](references/acceptance.md)。生成上传包不代表已通过 SkillHub 审核或完成真实企业接口联调。

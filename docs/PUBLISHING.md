@@ -15,6 +15,8 @@ python scripts/package_skill.py
 
 ZIP 根目录直接放置 `SKILL.md`，附带 README、连接说明、13 个业务子技能、共享规则、脚本、模板、虚构样例和测试。保持该完整结构，避免二次压缩时增加一层项目文件夹，也不要只上传子技能目录。各子技能有共享依赖；当前发布物是一个完整套件。
 
+SkillHub 已反馈无扩展名 `LICENSE` 不允许上传。构建工具将仓库的 `LICENSE` 原样导出为 `LICENSE.txt`，重写包内对应 Markdown 链接；ZIP 内不包含无扩展名文件。项目分发文件类型限 `.md/.txt/.json/.yaml/.py/.csv`，不代表这些类型已全部通过平台现场审核。
+
 `suite.json` 是项目自身的技能清单，`agents/openai.yaml` 是可选宿主界面元数据，两者不宣称为所有 SkillHub 客户端通用的注册协议。客户端只识别一个入口时，从根 `SKILL.md` 路由；多技能菜单是否自动出现需在实际宿主验证。
 
 ## 上架内容建议

@@ -334,7 +334,7 @@ class PackagingTests(unittest.TestCase):
             target = Path(tmp)
             for name in release.RELEASE_FILES:
                 dest = target / name; dest.parent.mkdir(parents=True, exist_ok=True)
-                dest.write_bytes((ROOT / name).read_bytes())
+                dest.write_bytes(release.source_path(ROOT, name).read_bytes())
             (target / 'examples' / 'private-keys.json').write_text('{"secret":"never-package"}')
             zip_path, digest = release.package(target)
             self.assertEqual(len(digest), 64)
@@ -348,13 +348,17 @@ class PackagingTests(unittest.TestCase):
                 self.assertIsNone(z.testzip())
                 self.assertEqual(set(z.namelist()), set(release.RELEASE_FILES))
                 self.assertIn('SKILL.md', z.namelist())
+                self.assertNotIn('LICENSE', z.namelist())
+                self.assertEqual(z.read('LICENSE.txt'), release.source_path(ROOT, 'LICENSE.txt').read_bytes())
+                self.assertIn(b'](LICENSE.txt)', z.read('README.md'))
+                self.assertTrue(all(Path(n).suffix.lower() in release.RELEASE_SUFFIXES for n in z.namelist()))
                 self.assertFalse(z.read('SKILL.md').startswith(b'\xef\xbb\xbf'))
                 self.assertTrue(all('..' not in Path(n).parts and not n.startswith('/') for n in z.namelist()))
 
     def test_relative_markdown_links_resolve(self):
         for name in release.RELEASE_FILES:
             if not name.endswith('.md'): continue
-            p = ROOT / name
+            p = release.source_path(ROOT, name)
             for link in re.findall(r'\]\(([^)]+)\)', p.read_text(encoding='utf-8')):
                 if '://' not in link and not link.startswith('#'):
                     self.assertTrue((p.parent / link.split('#')[0]).is_file(), f'{name}: {link}')

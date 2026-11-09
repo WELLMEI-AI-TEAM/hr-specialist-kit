@@ -8,7 +8,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 RELEASE_FILES = (
-    'SKILL.md', 'README.md', 'LICENSE', 'agents/openai.yaml',
+    'SKILL.md', 'README.md', 'LICENSE.txt', 'agents/openai.yaml',
     'references/recruitment.md', 'references/lifecycle.md', 'references/people-operations.md',
     'references/data-rules.md', 'references/connectors.md', 'references/acceptance.md',
     'assets/configs/connector.example.json', 'assets/templates/employees.csv', 'assets/templates/payroll.csv',
@@ -26,20 +26,35 @@ SKILL_NAMES = ('hr-data-query', 'hr-employee-profile', 'hr-attendance-leave', 'h
                'hr-approvals', 'hr-knowledge', 'hr-service-entry', 'hr-requisition', 'hr-position',
                'hr-talent-search', 'hr-applicant-tracking', 'hr-recruiting-todos', 'hr-recruitment-insights')
 RELEASE_FILES += tuple(f'skills/{name}/{resource}' for name in SKILL_NAMES for resource in ('SKILL.md', 'agents/openai.yaml'))
+RELEASE_SUFFIXES = {'.md', '.txt', '.json', '.yaml', '.py', '.csv'}
+
+
+def source_path(root, name):
+    """Git keeps LICENSE; the SkillHub archive uses the supported .txt suffix."""
+    path = root / name
+    if name == 'LICENSE.txt' and not path.exists():
+        return root / 'LICENSE'
+    return path
 
 
 def release_payload(root):
     """Check the complete distributable before creating an archive."""
     payload = {}
     for name in RELEASE_FILES:
-        p = root / name
+        p = source_path(root, name)
         if (not p.is_file() or p.is_symlink() or not p.resolve().is_relative_to(root)
                 or any(part.startswith('.') or part == '..' for part in Path(name).parts)):
             raise ValueError(f'发布资源缺失或路径不安全: {name}')
+        if Path(name).suffix.lower() not in RELEASE_SUFFIXES:
+            raise ValueError(f'发布文件类型不在项目白名单内: {name}')
         data = p.read_bytes()
         if p.name == 'SKILL.md' and data.startswith(b'\xef\xbb\xbf'):
             raise ValueError(f'SKILL.md 必须为无 BOM UTF-8: {name}')
-        data.decode('utf-8')
+        text = data.decode('utf-8')
+        if name.endswith('.md'):
+            text = re.sub(r'(\]\()((?:\.\./)*LICENSE)(\))', r'\1\2.txt\3', text)
+            text = text.replace('├── LICENSE                   ', '├── LICENSE.txt               ')
+            data = text.encode('utf-8')
         payload[name] = data
     suite = json.loads(payload['suite.json'])
     version = suite.get('version', '')
