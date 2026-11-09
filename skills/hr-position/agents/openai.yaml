@@ -1,0 +1,4 @@
+interface:
+  display_name: "职位管理"
+  short_description: "搜索有权访问的招聘职位，查看JD、职责、任职资格、人数、脱敏薪资范围、地点和申请量。"
+  default_prompt: "使用 $hr-position，查询我有权访问的人事信息，并说明数据范围与待补条件。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "办事入口"
+  short_description: "按意图匹配HR办事菜单，给出可信链接及导航路径；只提供入口，不正式录入或提交业务。"
+  default_prompt: "使用 $hr-service-entry，查询我有权访问的人事信息，并说明数据范围与待补条件。"

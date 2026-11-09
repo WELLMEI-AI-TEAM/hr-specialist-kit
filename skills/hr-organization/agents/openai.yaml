@@ -1,0 +1,4 @@
+interface:
+  display_name: "组织架构"
+  short_description: "为具备管理权限的用户查询组织与编制信息，须有明确管理用途和部门范围。"
+  default_prompt: "使用 $hr-organization，查询我有权访问的人事信息，并说明数据范围与待补条件。"

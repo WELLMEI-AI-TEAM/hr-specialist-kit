@@ -1,0 +1,4 @@
+interface:
+  display_name: "招聘洞察"
+  short_description: "查看招聘整体进展、流程卡点、重点岗位、阶段量、Offer到岗转化；分析任务仅给入口，部分数据不推断全局结论。"
+  default_prompt: "使用 $hr-recruitment-insights，查询我有权访问的人事信息，并说明数据范围与待补条件。"

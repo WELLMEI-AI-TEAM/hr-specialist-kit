@@ -1,0 +1,455 @@
+{
+  "notice": "全部为虚构演示资料，不能用作实际人事数据",
+  "identity": {
+    "status": "ok",
+    "data": {
+      "subject_id": "DEMO-SUBJECT",
+      "employee_id": "DEMO001",
+      "tenant_id": "DEMO-TENANT",
+      "roles": [
+        "employee",
+        "hr",
+        "manager"
+      ],
+      "permissions": [
+        "self:read",
+        "organization:read",
+        "team:read",
+        "knowledge:read",
+        "navigation:read",
+        "recruitment:read"
+      ],
+      "managed_department_ids": [
+        "DEMO-DEPT"
+      ],
+      "managed_position_ids": [
+        "DEMO-POS"
+      ]
+    }
+  },
+  "responses": {
+    "profile.basic": {
+      "status": "ok",
+      "request_id": "demo-profile-basic",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "self",
+        "permission": "self:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "employee_id": "DEMO001",
+          "name": "虚构员工甲",
+          "position": "产品经理",
+          "salary": "32000",
+          "phone": "13800138000",
+          "tenant_id": "DEMO-TENANT",
+          "owner_employee_id": "DEMO001"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "attendance.balance": {
+      "status": "ok",
+      "request_id": "demo-attendance-balance",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "self",
+        "permission": "self:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "type": "年假",
+          "balance": 5,
+          "unit": "天",
+          "date": "2026-11-09",
+          "tenant_id": "DEMO-TENANT",
+          "owner_employee_id": "DEMO001"
+        },
+        {
+          "type": "调休",
+          "balance": 8,
+          "unit": "小时",
+          "date": "2026-11-09",
+          "tenant_id": "DEMO-TENANT",
+          "owner_employee_id": "DEMO001"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "attendance.exceptions": {
+      "status": "ok",
+      "request_id": "demo-attendance-exceptions",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "self",
+        "permission": "self:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "date": "2026-10-12",
+          "type": "漏卡",
+          "status": "待确认",
+          "tenant_id": "DEMO-TENANT",
+          "owner_employee_id": "DEMO001"
+        },
+        {
+          "date": "2026-10-22",
+          "type": "迟到",
+          "status": "已登记",
+          "tenant_id": "DEMO-TENANT",
+          "owner_employee_id": "DEMO001"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "approval.pending": {
+      "status": "ok",
+      "request_id": "demo-approval-pending",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "self",
+        "permission": "self:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "approval_id": "DEMO-APPROVAL",
+          "title": "虚构待办审批",
+          "status": "在途",
+          "current_node": "负责人审核",
+          "approver": "本人",
+          "entry_url": "https://hr.example.invalid/approval/demo",
+          "tenant_id": "DEMO-TENANT",
+          "owner_employee_id": "DEMO001"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "knowledge.search": {
+      "status": "ok",
+      "request_id": "demo-knowledge-search",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "knowledge",
+        "permission": "knowledge:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "document_id": "DEMO-DOC",
+          "title": "虚构公积金办事指南",
+          "version": "DEMO-v1",
+          "effective_date": "2026-01-01",
+          "excerpt": "演示资料，不是企业政策；实际提取条件请查询本地公积金中心和企业已发布制度。",
+          "source_url": "https://hr.example.invalid/knowledge/demo",
+          "tenant_id": "DEMO-TENANT"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "service.leave": {
+      "status": "ok",
+      "request_id": "demo-service-leave",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "navigation",
+        "permission": "navigation:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "menu_id": "DEMO-MENU",
+          "title": "虚构请假入口",
+          "navigation_path": "工作台 > HR > 请假",
+          "entry_url": "https://hr.example.invalid/leave/demo",
+          "tenant_id": "DEMO-TENANT"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "organization.headcount": {
+      "status": "ok",
+      "request_id": "demo-organization-headcount",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "team",
+        "permission": "team:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "department_id": "DEMO-DEPT",
+          "department_name": "虚构产品部",
+          "headcount": 10,
+          "used": 8,
+          "vacant": 2,
+          "tenant_id": "DEMO-TENANT"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "position.search": {
+      "status": "ok",
+      "request_id": "demo-position-search",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "recruitment",
+        "permission": "recruitment:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "position_id": "DEMO-POS",
+          "name": "虚构B端产品经理",
+          "status": "招聘中",
+          "openings": 2,
+          "salary_range": "20000-30000",
+          "applications_count": 12,
+          "tenant_id": "DEMO-TENANT"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "position.detail": {
+      "status": "ok",
+      "request_id": "demo-position-detail",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "recruitment",
+        "permission": "recruitment:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "position_id": "DEMO-POS",
+          "name": "虚构B端产品经理",
+          "status": "招聘中",
+          "jd": "负责企业产品需求与交付",
+          "qualifications": "B端产品项目证据",
+          "openings": 2,
+          "salary_range": "20000-30000",
+          "locations": [
+            "上海"
+          ],
+          "tenant_id": "DEMO-TENANT"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "talent.search": {
+      "status": "ok",
+      "request_id": "demo-talent-search",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "recruitment",
+        "permission": "recruitment:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "candidate_id": "DEMO-CANDIDATE",
+          "name": "虚构候选人乙",
+          "position_id": "DEMO-POS",
+          "experience_years": 4,
+          "education": "本科",
+          "skills": [
+            "B端产品",
+            "需求分析"
+          ],
+          "evidence": "虚构项目经历，尚待面试核实",
+          "tenant_id": "DEMO-TENANT"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "talent.job_status": {
+      "status": "ok",
+      "request_id": "demo-talent-job_status",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "recruitment",
+        "permission": "recruitment:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "job_id": "DEMO-JOB",
+          "position_id": "DEMO-POS",
+          "job_status": "running",
+          "summary": "任务仍在运行，未获取结果",
+          "tenant_id": "DEMO-TENANT"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "talent.start_entry": {
+      "status": "ok",
+      "request_id": "demo-talent-start_entry",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "recruitment",
+        "permission": "recruitment:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "position_id": "DEMO-POS",
+          "entry_url": "https://hr.example.invalid/talent/search",
+          "navigation_path": "招聘 > 人才搜寻 > 新建",
+          "tenant_id": "DEMO-TENANT"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "talent.cancel_entry": {
+      "status": "ok",
+      "request_id": "demo-talent-cancel_entry",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "recruitment",
+        "permission": "recruitment:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "job_id": "DEMO-JOB",
+          "position_id": "DEMO-POS",
+          "entry_url": "https://hr.example.invalid/talent/tasks/DEMO-JOB",
+          "navigation_path": "招聘 > 搜寻任务 > 查看详情",
+          "tenant_id": "DEMO-TENANT"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "todo.today_interviews": {
+      "status": "ok",
+      "request_id": "demo-todo-today_interviews",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "recruitment",
+        "permission": "recruitment:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "owner_subject_id": "DEMO-SUBJECT",
+          "position_id": "DEMO-POS",
+          "interview_id": "DEMO-INTERVIEW",
+          "title": "虚构产品面试",
+          "start_time": "2026-11-09T14:00:00+08:00",
+          "end_time": "2026-11-09T15:00:00+08:00",
+          "status": "待参加",
+          "tenant_id": "DEMO-TENANT"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "insight.overview": {
+      "status": "ok",
+      "request_id": "demo-insight-overview",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "recruitment",
+        "permission": "recruitment:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "position_id": "DEMO-POS",
+          "period": "2026-11",
+          "summary": "虚构统计：仅DEMO-POS职位，统计由服务端示例提供，不代表全部公司",
+          "count": 12,
+          "tenant_id": "DEMO-TENANT"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    },
+    "insight.interview_quality_entry": {
+      "status": "ok",
+      "request_id": "demo-insight-interview_quality_entry",
+      "authorization": {
+        "subject_id": "DEMO-SUBJECT",
+        "tenant_id": "DEMO-TENANT",
+        "scope": "recruitment",
+        "permission": "recruitment:read",
+        "enforced": true
+      },
+      "records": [
+        {
+          "entry_url": "https://hr.example.invalid/insights/interviews",
+          "navigation_path": "招聘 > 洞察 > 面试质量分析",
+          "summary": "仅入口，未发起分析",
+          "tenant_id": "DEMO-TENANT"
+        }
+      ],
+      "page": {
+        "has_more": false,
+        "next_cursor": null
+      }
+    }
+  }
+}

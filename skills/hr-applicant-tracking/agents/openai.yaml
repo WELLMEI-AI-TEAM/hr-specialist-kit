@@ -1,0 +1,4 @@
+interface:
+  display_name: "应聘者跟进"
+  short_description: "查询应聘者当前阶段、职位申请列表、待处理简历、面试中、待发Offer及待入职核对，不代做录用决定。"
+  default_prompt: "使用 $hr-applicant-tracking，查询我有权访问的人事信息，并说明数据范围与待补条件。"

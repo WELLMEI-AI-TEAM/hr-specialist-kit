@@ -1,0 +1,11 @@
+{
+  "enabled": false,
+  "kind": "generic",
+  "api_key_env": "HR_SERVICE_API_KEY",
+  "base_url": "https://hr.example.invalid",
+  "allowed_host": "hr.example.invalid",
+  "path": "/api/employees",
+  "query": {},
+  "auth_header": "Authorization",
+  "auth_scheme": "Bearer"
+}

@@ -1,0 +1,10 @@
+{
+  "mode": "simulation",
+  "confirmed": true,
+  "source": "虚构教学示例，仅演示计算，不作为工资政策或法定依据",
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "proration": "base_times_paid_over_payable",
+  "hourly_divisor": "160",
+  "overtime_multipliers": {"weekday": "1.5", "restday": "2", "holiday": "3"}
+}

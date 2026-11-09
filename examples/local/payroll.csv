@@ -1,0 +1,3 @@
+employee_id,base_salary,payable_days,paid_days,ot_weekday_hours,ot_restday_hours,ot_holiday_hours,bonus,allowance,employee_social,employee_housing,tax,other_deduction
+DEMO001,10000,20,20,2,0,0,500,200,1000,500,300,0
+DEMO002,8000,20,10,0,0,0,0,100,600,400,0,0

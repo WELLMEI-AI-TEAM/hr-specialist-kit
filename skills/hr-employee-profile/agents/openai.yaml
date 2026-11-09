@@ -1,0 +1,4 @@
+interface:
+  display_name: "员工档案"
+  short_description: "查询本人基本信息、任职、教育、技能、项目、履历、考核、证书、奖励与晋升；不查询其他员工档案。"
+  default_prompt: "使用 $hr-employee-profile，查询我有权访问的人事信息，并说明数据范围与待补条件。"

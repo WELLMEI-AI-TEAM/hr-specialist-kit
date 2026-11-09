@@ -1,0 +1,11 @@
+{
+  "enabled": false,
+  "base_url": "https://hr.example.invalid",
+  "allowed_host": "hr.example.invalid",
+  "api_key_env": "HR_QUERY_API_KEY",
+  "identity_path": "/YOUR_IDENTITY_READ_PATH",
+  "routes": {},
+  "navigation_hosts": ["hr.example.invalid"],
+  "auth_header": "Authorization",
+  "auth_scheme": "Bearer"
+}

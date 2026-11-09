@@ -1,0 +1,4 @@
+interface:
+  display_name: "招聘需求管理"
+  short_description: "按状态、名称、编号和提出人查看招聘需求、HC、负责人、到岗时间及需求级进展。"
+  default_prompt: "使用 $hr-requisition，查询我有权访问的人事信息，并说明数据范围与待补条件。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "考勤休假"
+  short_description: "查询本人假期余额、打卡、排班、加班、公出出差、休假和调休；不替代考勤审批。"
+  default_prompt: "使用 $hr-attendance-leave，查询我有权访问的人事信息，并说明数据范围与待补条件。"

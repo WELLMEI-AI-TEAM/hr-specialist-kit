@@ -1,0 +1,88 @@
+{
+  "name": "hr-specialist",
+  "version": "2.0.1",
+  "business_skill_count": 13,
+  "skills": [
+    {
+      "name": "hr-data-query",
+      "title": "数据查询",
+      "description": "将自然语言人事查询映射为已登记场景，提取参数，执行身份权限校验和只读查询，统一输出结构化结果及降级状态。",
+      "prefix": "all"
+    },
+    {
+      "name": "hr-employee-profile",
+      "title": "员工档案",
+      "description": "查询本人基本信息、任职、教育、技能、项目、履历、考核、证书、奖励与晋升；不查询其他员工档案。",
+      "prefix": "profile"
+    },
+    {
+      "name": "hr-attendance-leave",
+      "title": "考勤休假",
+      "description": "查询本人假期余额、打卡、排班、加班、公出出差、休假和调休；不替代考勤审批。",
+      "prefix": "attendance"
+    },
+    {
+      "name": "hr-organization",
+      "title": "组织架构",
+      "description": "为具备管理权限的用户查询部门负责人、HRBP、领导、行政助理、组织层级和编制；须有明确管理用途和部门范围。",
+      "prefix": "organization"
+    },
+    {
+      "name": "hr-approvals",
+      "title": "审批查询",
+      "description": "查询本人待办、已办、在途、结束审批及流程节点与审批人；不审批或提交申请。",
+      "prefix": "approval"
+    },
+    {
+      "name": "hr-knowledge",
+      "title": "企业知识库",
+      "description": "按关键词、分类和时间检索有权访问的制度、政策、流程与手册，回答须引用版本和来源。",
+      "prefix": "knowledge"
+    },
+    {
+      "name": "hr-service-entry",
+      "title": "办事入口",
+      "description": "按意图匹配HR办事菜单，给出可信链接及导航路径；只提供入口，不正式录入或提交业务。",
+      "prefix": "service"
+    },
+    {
+      "name": "hr-requisition",
+      "title": "招聘需求管理",
+      "description": "按状态、名称、编号和提出人查看招聘需求、HC、负责人、到岗时间及需求级进展。",
+      "prefix": "requisition"
+    },
+    {
+      "name": "hr-position",
+      "title": "职位管理",
+      "description": "搜索有权访问的招聘职位，查看JD、职责、任职资格、人数、脱敏薪资范围、地点和申请量。",
+      "prefix": "position"
+    },
+    {
+      "name": "hr-talent-search",
+      "title": "人才搜寻",
+      "description": "按岗位条件查询人才库、AI推荐与批量推荐结果，查看异步搜寻状态；发起或取消任务仅引导到系统入口。",
+      "prefix": "talent"
+    },
+    {
+      "name": "hr-applicant-tracking",
+      "title": "应聘者跟进",
+      "description": "查询应聘者当前阶段、职位申请列表、待处理简历、面试中、待发Offer及待入职核对，不代做录用决定。",
+      "prefix": "applicant"
+    },
+    {
+      "name": "hr-recruiting-todos",
+      "title": "招聘待办",
+      "description": "汇总我的待筛选简历、待评价面试、待参加面试和近期日程，按当前用户的招聘职责过滤。",
+      "prefix": "todo"
+    },
+    {
+      "name": "hr-recruitment-insights",
+      "title": "招聘洞察",
+      "description": "查看招聘整体进展、流程卡点、重点岗位、阶段量、Offer到岗转化；分析任务仅给入口，部分数据不推断全局结论。",
+      "prefix": "insight"
+    }
+  ],
+  "internal_rules": "references/hr-shared-rules.md",
+  "internal_rules_registered": false,
+  "description": "员工自助与招聘协作技能套件，提供授权只读查询、敏感字段脱敏及业务入口引导。"
+}

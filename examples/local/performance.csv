@@ -1,0 +1,4 @@
+employee_id,indicator,weight,target,actual,direction,evidence
+DEMO001,按期交付量,60,10,12,higher,虚构项目验收记录
+DEMO001,缺陷数量,40,5,10,lower,虚构质量周报
+DEMO002,培训完成量,100,4,3,higher,

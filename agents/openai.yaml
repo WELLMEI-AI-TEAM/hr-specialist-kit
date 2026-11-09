@@ -1,0 +1,4 @@
+interface:
+  display_name: "HR专家套件"
+  short_description: "员工自助与招聘协作，13项业务技能、权限查询、字段脱敏和可信业务入口引导"
+  default_prompt: "使用 $hr-specialist，查询我有权访问的人事信息或找到办理入口，并说明查询范围和连接状态。"

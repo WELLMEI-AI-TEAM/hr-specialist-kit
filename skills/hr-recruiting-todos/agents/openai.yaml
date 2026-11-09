@@ -1,0 +1,4 @@
+interface:
+  display_name: "招聘待办"
+  short_description: "汇总我的待筛选简历、待评价面试、待参加面试和近期日程，按当前用户的招聘职责过滤。"
+  default_prompt: "使用 $hr-recruiting-todos，查询我有权访问的人事信息，并说明数据范围与待补条件。"
